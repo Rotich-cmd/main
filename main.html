@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>😍😍 You are special </title>
+    <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==">
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <!-- <script src="main.js" defer></script> -->
+
+
+    <style>
+        body{
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd6e8, #fff0f6);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.parent{
+    background: white;
+    width: 900px;
+    max-width: 380px;
+    padding: 35px 25px;
+    border-radius: 25px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.22);
+}
+.heart{
+    font-size: 24px;
+    animation: beat 1s infinite;
+
+}
+h1{
+    color: palevioletred;
+    margin-bottom: 10px;
+}
+h2{
+    color: #333;
+    margin-top: 25px;
+}
+p{
+    color: #444;
+    font-size: 17px;
+    line-height: 1.5;
+}
+.buttons{
+    margin-top: 25px;
+    height: 80px;
+    position: relative;
+}
+button{
+    border: none;
+    padding: 13px 28px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+#YESBtn{
+    background: #ff4f9a;
+    color: white;
+    margin-right: 15px;
+
+}
+#YESBtn:hover{
+    transform: scale(1.1);
+    background: #ff2f86;
+
+}
+#NoBtn{
+    background: #eeeeee;
+    color: #333;
+    position: absolute;
+}
+#NoBtn:hover{
+    transform: scale(1.1);
+    background: #f50101;
+}
+
+#smallText{
+    font-size: 14px;
+    color: #999;
+}
+
+@keyframes beat {
+    0%,100%{
+        transform: scale(1);
+
+    } 
+    50%{
+        transform: scale(1.25);
+    }
+}
+
+/* Modal styles for the letter popup */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 680px;
+    width: 340px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    transition: width 0.5s ease, max-width 0.5s ease, transform 0.5s ease;
+}
+.modal-content.expanded {
+    width: 680px;
+}
+.letter-wrapper {
+    margin-top: 18px;
+}
+.letter-paper {
+    background: linear-gradient(180deg, #fffdf4 0%, #fff7e9 100%);
+    border: 1px solid rgba(255, 175, 90, 0.3);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7), 0 10px 25px rgba(0,0,0,0.08);
+    transform: scale(0.96);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.letter-paper.visible {
+    transform: scale(1);
+    opacity: 1;
+}
+.close {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
+.letter-text {
+    white-space: pre-wrap;
+    font-size: 17px;
+    color: #3e2a1f;
+    line-height: 1.8;
+    margin-top: 10px;
+    font-family: 'Segoe Script', 'Lucida Handwriting', 'Bradley Hand', 'Comic Sans MS', cursive;
+    letter-spacing: 0.02em;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.4);
+}
+.letter-text::selection {
+    background: rgba(255, 200, 140, 0.35);
+}
+
+/* Confetti styles */
+.confetti-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 1100;
+}
+.confetti {
+    position: absolute;
+    top: -10vh;
+    border-radius: 2px;
+    opacity: 0.9;
+    transform-origin: center;
+    animation-name: confetti-fall, confetti-spin;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: forwards;
+}
+@keyframes confetti-fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0.9; }
+}
+@keyframes confetti-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="heart">❤️</div>
+
+        <h1>Hey Baby😊</h1>
+
+        <p id="message">Since this is a website, I guess for me it was love at first Site 😊
+        </p>
+
+        <h2> Wanna have a future with you 🔮? </br>
+            Do you feel something for me maybe 😒?
+        </h2>
+
+        <div class="buttons">
+            <button id="YESBtn">YES 😊</button>
+            <button id="NoBtn">NO 🥹</button>
+        </div>
+
+        <p id="smallText">Kumbuka i normally take everything serious before uchague No 👌</p>
+    </div>
+<script>
+    const YESBtn = document.getElementById('YESBtn');
+const NoBtn = document.getElementById('NoBtn');
+const smallText = document.getElementById('smallText');
+
+let NoCount = 0;
+
+function moveNoBtn() {
+    NoCount ++;
+
+    const maxX = window.innerWidth - NoBtn.offsetWidth;
+    const maxY = window.innerHeight - NoBtn.offsetHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+    
+
+    NoBtn.style.position = "fixed";
+    NoBtn.style.left = `${randomX}px`;
+    NoBtn.style.top = `${randomY}px`;
+
+    if (NoCount === 1){
+        smallText.textContent = "Mbona unakimbilia No 😒"
+    }
+    else if (NoCount === 2){
+        smallText.textContent ="No pia inaona ni fate,finya yes 😊"
+    }
+    else if (NoCount ===3){
+        smallText.textContent = "Achana na No 🤦‍♀️"
+    }
+    else {
+        smallText.textContent = " No is No longer clickable, imejam.. Just pick yes 😊"
+    }
+}
+
+NoBtn.addEventListener("mouseover", moveNoBtn);
+NoBtn.addEventListener("touchstart", moveNoBtn);
+
+YESBtn.addEventListener("click", () => {
+    document.body.innerHTML = `
+        <div class="parent">
+            <div class = "heart">  ❤️ </div>
+            <h1>Yay! 😁</h1>
+            <p>Knew you had feelings for me too, thank you 😊</p>
+            <h2>So will you maintain that ama?</h2>
+            <h2>Lets link up in whatsapp for your feedback.....</h2>
+
+            <div class="buttons" style="margin-top:20px;">
+                <button id="openLetterBtn" style="background-color: #ff2f86; color: white; padding: 10px 20px; border: none; border-radius: 30px; cursor: pointer;">Meanwhile, Open My Letter</button>
+            </div>
+
+            <!-- Modal (hidden by default) -->
+            <div id="letterModal" class="modal" style="display:none;">
+                <div class="modal-content">
+                    <span id="closeModal" class="close">&times;</span>
+                    <div class="letter-wrapper">
+                        <div class="letter-paper">
+                            <pre class="letter-text"></pre>
+                        </div>
+                    </div>
+                    <div style="text-align:center; margin-top:15px;">
+                        <button id="startOverBtn" style="background:#ff2f86;color:#fff;padding:10px 16px;border:none;border-radius:30px;cursor:pointer;">Start Over</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const letter = `My Dear,
+
+It's funny how someone you've only recently met can begin to occupy your thoughts in such a short time. We may have only just started getting to know each other, but every conversation we've shared has left me wanting to know more about you.
+
+There's something about the way you carry yourself, the way you smile, and the little things you say that make me look forward to hearing from you again. I don't want to rush anything or make promises too early. I'd rather take the time to know the real you, to build something genuine, and to let whatever we have grow naturally.
+
+I hope this journey we're beginning becomes one filled with laughter, honesty, trust, and beautiful memories. Whether we're talking for hours or simply checking in on each other during the day, I already appreciate the happiness you've brought into my life.
+
+I want you to know that I'll always treat you with respect, listen to you, support your dreams, and be someone you can feel comfortable around. I believe the strongest relationships start with friendship, understanding, and consistency, and that's exactly what I'd like us to build together.
+
+Thank you for giving me the chance to know you. I'm excited to discover more about your dreams, your passions, your favorite moments, and everything that makes you uniquely you.
+
+Whatever the future holds, I'm grateful that our paths crossed. Here's to the beginning of something beautiful, one day and one smile at a time.
+
+Take care, beautiful 😊.`;
+
+    const openBtn = document.getElementById('openLetterBtn');
+    const modal = document.getElementById('letterModal');
+    const modalContent = document.querySelector('.modal-content');
+    const letterPaper = document.querySelector('.letter-paper');
+    const pre = document.querySelector('.letter-text');
+    const startOverBtn = document.getElementById('startOverBtn');
+    if (pre) pre.textContent = '';
+
+    function revealLetter() {
+        if (!pre) return;
+        pre.textContent = '';
+        if (modalContent) {
+            modalContent.classList.add('expanded');
+        }
+        if (letterPaper) {
+            letterPaper.classList.add('visible');
+        }
+
+        let index = 0;
+        const reveal = () => {
+            if (!pre || index > letter.length) return;
+            pre.textContent = letter.slice(0, index);
+            index += 1;
+            if (index <= letter.length) {
+                const delay = 25 + Math.random() * 35;
+                setTimeout(reveal, delay);
+            }
+        };
+        reveal();
+    }
+
+    // Debug helper
+    function debug(msg, obj) {
+        try { console.debug('[GAME DEBUG]', msg, obj || ''); } catch (e) { /* ignore */ }
+    }
+
+    let confettiInterval = null;
+    let celebrationAudio = null;
+
+    function createConfetti() {
+        debug('createConfetti called (js-animate)');
+        const container = document.createElement('div');
+        container.className = 'confetti-container';
+        container.style.position = 'fixed';
+        container.style.left = '0';
+        container.style.top = '0';
+        container.style.width = '100%';
+        container.style.height = '100%';
+        container.style.pointerEvents = 'none';
+        container.style.overflow = 'visible';
+        container.style.zIndex = '2000';
+        document.body.appendChild(container);
+
+        const colors = ['#ff3b8d', '#ffd93d', '#5be3b4', '#7cc6ff', '#ff8a65', '#b39ddb'];
+        const count = 80;
+        for (let i = 0; i < count; i++) {
+            const conf = document.createElement('div');
+            conf.className = 'confetti';
+            const w = Math.floor(Math.random() * 10) + 6;
+            conf.style.width = `${w}px`;
+            conf.style.height = `${Math.max(3, Math.floor(w * 0.4))}px`;
+            conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.opacity = `${Math.random() * 0.6 + 0.5}`;
+            conf.style.position = 'absolute';
+            const startX = Math.floor(Math.random() * window.innerWidth);
+            conf.style.left = `${startX}px`;
+            conf.style.top = `${-20 - Math.floor(Math.random() * 80)}px`;
+            conf.style.borderRadius = '2px';
+            container.appendChild(conf);
+
+            const destY = window.innerHeight + 150 + Math.random() * 200;
+            const rotateTo = Math.random() * 720 - 360;
+            const duration = 2000 + Math.random() * 2500;
+            try {
+                conf.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(${destY}px) rotate(${rotateTo}deg)`, opacity: 0.9 }
+                ], {
+                    duration: duration,
+                    easing: 'cubic-bezier(.17,.67,.26,1)',
+                    iterations: 1,
+                    fill: 'forwards'
+                });
+            } catch (e) {
+                conf.style.transition = `transform ${duration}ms linear, opacity ${duration}ms linear`;
+                conf.style.transform = `translateY(${destY}px) rotate(${rotateTo}deg)`;
+                conf.style.opacity = '0.9';
+            }
+        }
+
+        debug('confetti elements created', count);
+        setTimeout(() => {
+            debug('removing confetti container');
+            if (container.parentNode) container.parentNode.removeChild(container);
+        }, 8000);
+        return container;
+    }
+
+    function stopCelebration() {
+        debug('stopCelebration called');
+        if (celebrationAudio) {
+            celebrationAudio.pause();
+            celebrationAudio.currentTime = 0;
+            celebrationAudio = null;
+        }
+        if (confettiInterval) {
+            clearInterval(confettiInterval);
+            confettiInterval = null;
+        }
+        const existing = document.querySelector('.confetti-container');
+        if (existing) existing.remove();
+    }
+
+    if (openBtn) {
+        debug('binding openBtn click');
+        openBtn.addEventListener('click', () => {
+            debug('openBtn clicked');
+            if (celebrationAudio && !celebrationAudio.paused) {
+                debug('audio already playing, ignoring second open click');
+                return;
+            }
+            modal.style.display = 'flex';
+
+            celebrationAudio = new Audio('../Audio/Wema%20Love.mp3');
+            celebrationAudio.preload = 'auto';
+            celebrationAudio.volume = 0.75;
+            celebrationAudio.play().catch((e) => {
+                debug('audio play error', e);
+            });
+
+            celebrationAudio.addEventListener('error', (e) => {
+                debug('audio load error', e);
+            });
+
+            celebrationAudio.addEventListener('ended', () => {
+                debug('celebrationAudio ended');
+                if (confettiInterval) {
+                    clearInterval(confettiInterval);
+                    confettiInterval = null;
+                }
+            });
+
+            revealLetter();
+            createConfetti();
+            if (confettiInterval) clearInterval(confettiInterval);
+            confettiInterval = setInterval(() => {
+                if (celebrationAudio && !celebrationAudio.paused) {
+                    debug('interval confetti tick');
+                    createConfetti();
+                }
+            }, 10000);
+
+            setTimeout(() => {
+                window.addEventListener('click', stopCelebration, { once: true });
+            }, 0);
+        });
+    } else {
+        debug('openBtn is null');
+    }
+
+    if (closeBtn) {
+        debug('binding closeBtn click');
+        closeBtn.addEventListener('click', () => {
+            debug('closeBtn clicked');
+            modal.style.display = 'none';
+            stopCelebration();
+        });
+    } else {
+        debug('closeBtn is null');
+    }
+
+    if (startOverBtn) {
+        debug('binding startOverBtn');
+        startOverBtn.addEventListener('click', () => {
+            debug('startOverBtn clicked - reloading');
+            // reload to restart the entire flow back to the initial page
+            location.reload();
+        });
+    } else {
+        debug('startOverBtn is null');
+    }
+
+    // close when clicking outside modal
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            debug('clicked outside modal - closing');
+            modal.style.display = 'none';
+            stopCelebration();
+        }
+    });
+});
+
+</script>
+</body>
+
+</html>
